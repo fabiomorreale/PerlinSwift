@@ -20,7 +20,7 @@ var perlin = [Float]()
 var cosLUT = [Float()]
 
 func initTables(){
-    cosLUT.removeAll()  // again, for some reason there was one item (0) when I initialised it
+    cosLUT.removeAll()
     for i in 0..<SINCOS_LENGTH{
         let angle = Float(i)*Float(DEG_TO_RAD)*Float(SINCOS_PRECISION)
         cosLUT.append(Float(cos(angle)))
@@ -35,7 +35,7 @@ func noise(x: Float, y: Float, z: Float) -> Float {     // remember to assign 0 
     if(perlin.isEmpty){
         for _ in 0..<PERLIN_SIZE+1{
             let tmp = Float(arc4random_uniform(99999))/99999.00
-            perlin.append(tmp) // perlin[i] = perlinRandom.nextFloat(); -> it's a random float 0...1
+            perlin.append(tmp)
         }
         
         perlin_cosTable = cosLUT;
